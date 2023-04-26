@@ -19,4 +19,26 @@ describe("fizzbuzz", () => {
       );
     });
   });
+  describe("returns the number (as a string) if it's not a multiple of 3 or 5", () => {
+    it("returns 1 if 1 is passed in", () => {
+      expect(fizzbuzz(1)).toBe("1");
+    });
+    it("returns 7 if 7 is passed in", () => {
+      expect(fizzbuzz(7)).toBe("7");
+    });
+    it("returns 98 if 98 is passed in", () => {
+      expect(fizzbuzz(98)).toBe("98");
+    });
+  });
+  describe("returns 'Fizz' if the number is a multiple of 3", () => {
+    it("returns 'Fizz' if 3 is passed in", () => {
+      expect(fizzbuzz(3)).toBe("Fizz");
+    });
+    it("returns 'Fizz' if 6 is passed in", () => {
+      expect(fizzbuzz(6)).toBe("Fizz");
+    });
+    it("returns 'Fizz' if 27 is passed in", () => {
+      expect(fizzbuzz(27)).toBe("Fizz");
+    });
+  });
 });
