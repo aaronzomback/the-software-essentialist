@@ -41,4 +41,15 @@ describe("fizzbuzz", () => {
       expect(fizzbuzz(27)).toBe("Fizz");
     });
   });
+  describe("returns 'Buzz' if the number is a multiple of 5", () => {
+    it("returns 'Buzz' if 5 is passed in", () => {
+      expect(fizzbuzz(5)).toBe("Buzz");
+    });
+    it("returns 'Buzz' if 10 is passed in", () => {
+      expect(fizzbuzz(10)).toBe("Buzz");
+    });
+    it("returns 'Buzz' if 50 is passed in", () => {
+      expect(fizzbuzz(50)).toBe("Buzz");
+    });
+  });
 });

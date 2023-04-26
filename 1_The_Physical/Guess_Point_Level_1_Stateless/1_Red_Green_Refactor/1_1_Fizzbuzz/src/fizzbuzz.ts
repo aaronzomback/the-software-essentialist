@@ -3,5 +3,6 @@ export const fizzbuzz = (number: number) => {
     throw new Error("Number must be between 1 to 100 inclusive.");
   if (!(number % 3 === 0 || number % 5 === 0)) return number.toString();
   if (number % 3 === 0) return "Fizz";
+  if (number % 5 === 0) return "Buzz";
   return;
 };
