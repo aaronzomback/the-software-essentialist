@@ -52,4 +52,15 @@ describe("fizzbuzz", () => {
       expect(fizzbuzz(50)).toBe("Buzz");
     });
   });
+  describe("returns 'FizzBuzz' if the number is a multiple of 3 and 5", () => {
+    it("returns 'FizzBuzz' if 15 is passed in", () => {
+      expect(fizzbuzz(15)).toBe("FizzBuzz");
+    });
+    it("returns 'FizzBuzz' if 30 is passed in", () => {
+      expect(fizzbuzz(30)).toBe("FizzBuzz");
+    });
+    it("returns 'FizzBuzz' if 90 is passed in", () => {
+      expect(fizzbuzz(90)).toBe("FizzBuzz");
+    });
+  });
 });
