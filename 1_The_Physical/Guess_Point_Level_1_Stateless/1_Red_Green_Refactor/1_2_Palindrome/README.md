@@ -17,3 +17,10 @@ To run the tests and have them reload when you save, run the following command:
 ```bash
 npm run test:dev
 ```
+
+
+Facts:
+
+1. should be able to detect that a string is a palindrome
+2. should still know that something is a palindrome, even if the casing is off
+3. should also be able to detect palindromes in phrases like "Was It A Rat I Saw" and "Never Odd or Even" too
