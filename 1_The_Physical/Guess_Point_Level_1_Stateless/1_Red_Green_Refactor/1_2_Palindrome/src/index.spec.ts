@@ -19,7 +19,7 @@ describe("palindrome checker", () => {
       "stats",
       "tenet",
       "wow",
-    ])("should return true for %s", (subject) => {
+    ])("should know that %s is a palindrome", (subject) => {
       expect(isPalindrome(subject)).toBe(true);
     });
     it.each([
@@ -37,7 +37,7 @@ describe("palindrome checker", () => {
       "livid",
       "horror",
       "dramatic",
-    ])("should return false for %s", (subject) => {
+    ])("should know that %s isn't a palindrome", (subject) => {
       expect(isPalindrome(subject)).toBe(false);
     });
   });
@@ -58,7 +58,7 @@ describe("palindrome checker", () => {
       "Wow",
       "xMomx",
       "Mom",
-    ])("should return true for %s", (subject) => {
+    ])("should know that %s is a palindrome", (subject) => {
       expect(isPalindrome(subject)).toBe(true);
     });
     it.each([
@@ -77,21 +77,24 @@ describe("palindrome checker", () => {
       "Horror",
       "Dramatic",
       "Momx",
-    ])("should return false for %s", (subject) => {
+    ])("should know that %s isn't a palindrome", (subject) => {
       expect(isPalindrome(subject)).toBe(false);
     });
   });
-  describe("phrases", () => {
+  describe("phrases with spaces", () => {
     it.each([
       "Was It A Rat I Saw",
       "Never Odd or Even",
       "1Never Odd or Even1",
       "Was  it A Rat I saw",
-    ])("should return true for %s", (subject) => {
+    ])("should know that %s is a palindrome", (subject) => {
       expect(isPalindrome(subject)).toBe(true);
     });
-    it.each(["Never Odd or Even1"])("should return false for %s", (subject) => {
-      expect(isPalindrome(subject)).toBe(false);
-    });
+    it.each(["Never Odd or Even1"])(
+      "should know that %s isn't a palindrome",
+      (subject) => {
+        expect(isPalindrome(subject)).toBe(false);
+      }
+    );
   });
 });
