@@ -1,3 +1,3 @@
 export function isPalindrome(subject: string) {
-  return true;
+  return subject.split("").reverse().join("") === subject;
 }
