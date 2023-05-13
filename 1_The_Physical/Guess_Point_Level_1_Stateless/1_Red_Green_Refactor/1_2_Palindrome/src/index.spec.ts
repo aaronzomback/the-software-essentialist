@@ -81,4 +81,17 @@ describe("palindrome checker", () => {
       expect(isPalindrome(subject)).toBe(false);
     });
   });
+  describe("phrases", () => {
+    it.each([
+      "Was It A Rat I Saw",
+      "Never Odd or Even",
+      "1Never Odd or Even1",
+      "Was  it A Rat I saw",
+    ])("should return true for %s", (subject) => {
+      expect(isPalindrome(subject)).toBe(true);
+    });
+    it.each(["Never Odd or Even1"])("should return false for %s", (subject) => {
+      expect(isPalindrome(subject)).toBe(false);
+    });
+  });
 });
