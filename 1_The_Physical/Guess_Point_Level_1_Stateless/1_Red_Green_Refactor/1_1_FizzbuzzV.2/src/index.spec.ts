@@ -27,14 +27,8 @@ describe('fizzbuzz', () => {
         })
     })
     describe('gracefully handles non-numbers', () => {
-        it("when given a string it throws an error", () => {
-            expect(() => fizzbuzz("string" as any)).toThrowError(NonNumberTypeError.message)
-        })
-        it("when given an array it throws an error", () => {
-           expect(() => fizzbuzz([] as any)).toThrowError(NonNumberTypeError.message);
-         });
-        it("when given a boolean it throws an error", () => {
-          expect(() => fizzbuzz(true as any)).toThrowError(NonNumberTypeError.message);
-        });                   
+        it.each(["string", undefined, null, true, false, [], {}, () => {}])("when given %s it throws an error", (input) => {
+            expect(() => fizzbuzz(input as any)).toThrowError(NonNumberTypeError.message)
+        })                   
     })
 })
