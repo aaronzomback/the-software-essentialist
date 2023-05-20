@@ -46,4 +46,9 @@ describe('fizzbuzz', () => {
             expect(fizzbuzz(100)).toBe("Buzz")
         })
     })
+    describe('returns "FizzBuzz" when given a multiple of 3 and 5', () => {
+        it("returns 'FizzBuzz' when given 15", () => {
+            expect(fizzbuzz(15)).toBe("FizzBuzz")
+        })
+    })
 })
