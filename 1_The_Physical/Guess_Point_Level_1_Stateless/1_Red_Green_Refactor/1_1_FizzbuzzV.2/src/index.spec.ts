@@ -25,6 +25,14 @@ describe('fizzbuzz', () => {
         });
     })
     describe('returns "Fizz" when given a multiple of 3', () => {
-        expect(fizzbuzz(3)).toBe("Fizz")
+        it("returns 'Fizz' when given 3", () => {
+            expect(fizzbuzz(3)).toBe("Fizz")
+        })
+        it("returns 'Fizz' when given 6", () => {
+            expect(fizzbuzz(6)).toBe("Fizz")
+        })
+        it("returns 'Fizz' when given 99", () => {
+            expect(fizzbuzz(99)).toBe("Fizz")
+        })
     })
 })

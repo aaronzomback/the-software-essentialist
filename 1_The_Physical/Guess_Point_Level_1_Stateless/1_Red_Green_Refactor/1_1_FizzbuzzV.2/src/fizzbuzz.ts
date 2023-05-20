@@ -1,5 +1,6 @@
 export const fizzbuzz = (n: number): string => {
     if (n < 1 || n > 100) throw numberOutofBoundsError
+    if (n % 3 === 0) return "Fizz"
     return n.toString()
 }
 
