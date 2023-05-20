@@ -7,3 +7,5 @@ export const fizzbuzz = (n: number): string => {
 }
 
 export const NumberOutOfBoundsError = new Error("Input must be a number between 1 and 100 inclusive");
+
+export const NonNumberTypeError = new Error("Input must be of type number");

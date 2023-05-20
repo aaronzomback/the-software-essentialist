@@ -1,4 +1,4 @@
-import { NumberOutOfBoundsError, fizzbuzz } from "./fizzbuzz";
+import { NonNumberTypeError, NumberOutOfBoundsError, fizzbuzz } from "./fizzbuzz";
 
 describe('fizzbuzz', () => {
     describe("takes numbers from 1 to 100 and outputs them as a string", () => {
@@ -24,6 +24,11 @@ describe('fizzbuzz', () => {
     describe('returns "FizzBuzz" when given a multiple of 3 and 5', () => {
         it.each([[15, "FizzBuzz"], [30, "FizzBuzz"], [45, "FizzBuzz"], [60, "FizzBuzz"], [75, "FizzBuzz"], [90, "FizzBuzz"], [90, "FizzBuzz"]])("when given %s it returns '%s'", (input, expected) => {
             expect(fizzbuzz(input)).toBe(expected)
+        })
+    })
+    describe('gracefully handles non-numbers', () => {
+        it("when given a string it throws an error", () => {
+            expect(() => fizzbuzz("string")).toThrowError(NonNumberTypeError.message)
         })
     })
 })
