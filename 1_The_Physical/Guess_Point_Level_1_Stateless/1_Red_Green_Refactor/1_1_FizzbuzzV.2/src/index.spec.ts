@@ -18,5 +18,10 @@ describe('fizzbuzz', () => {
             "Input must be a number between 1 and 100 inclusive"
           );
         });
+        it("returns 'Error' with message: 'Input must be a number between 1 and 100 inclusive', when given 0", () => {
+            expect(() => fizzbuzz(101)).toThrowError(
+                "Input must be a number between 1 and 100 inclusive"
+          );
+        });
     })
 })
