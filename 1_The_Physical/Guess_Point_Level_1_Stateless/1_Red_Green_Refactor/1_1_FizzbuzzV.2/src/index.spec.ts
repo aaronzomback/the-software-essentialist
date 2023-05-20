@@ -1,57 +1,29 @@
-import { fizzbuzz } from "./fizzbuzz";
+import { NumberOutOfBoundsError, fizzbuzz } from "./fizzbuzz";
 
 describe('fizzbuzz', () => {
     describe("takes numbers from 1 to 100 and outputs them as a string", () => {
-        it("returns '1' when given 1", () => {
-        expect(fizzbuzz(1)).toBe("1")
-        })
-        it("returns '2' when given 2", () => {
-        expect(fizzbuzz(2)).toBe("2")
-        })
-        it("returns '98' when given 98", () => {
-            expect(fizzbuzz(98)).toBe("98")
+        it.each([[1, "1"], [2, "2"], [4, "4"], [7, "7"], [11, "11"], [13, "13"], [17, "17"], [98, "98"]])("when given %s it returns '%s'", (input, expected) => {
+            expect(fizzbuzz(input)).toBe(expected)
         })
     });
     describe('gracefully handles out-of-bound numbers below 1 and above 100', () => {
-        it("returns 'Error' with message: 'Input must be a number between 1 and 100 inclusive', when given 0", () => {
-          expect(() => fizzbuzz(0)).toThrowError(
-            "Input must be a number between 1 and 100 inclusive"
-          );
-        });
-        it("returns 'Error' with message: 'Input must be a number between 1 and 100 inclusive', when given 0", () => {
-            expect(() => fizzbuzz(101)).toThrowError(
-                "Input must be a number between 1 and 100 inclusive"
-          );
-        });
+        it.each([0, 101, -12, 102, -34, -5, -3, -9, 115, 112])("when given %s it throws an error", (input) => {
+            expect(() => fizzbuzz(input)).toThrowError(NumberOutOfBoundsError.message)
+        })
     })
     describe('returns "Fizz" when given a multiple of 3', () => {
-        it("returns 'Fizz' when given 3", () => {
-            expect(fizzbuzz(3)).toBe("Fizz")
-        })
-        it("returns 'Fizz' when given 6", () => {
-            expect(fizzbuzz(6)).toBe("Fizz")
-        })
-        it("returns 'Fizz' when given 99", () => {
-            expect(fizzbuzz(99)).toBe("Fizz")
+        it.each([[3, "Fizz"], [6, "Fizz"], [9, "Fizz"], [12, "Fizz"], [18, "Fizz"], [21, "Fizz"], [24, "Fizz"], [27, "Fizz"], [33, "Fizz"], [36, "Fizz"], [39, "Fizz"], [42, "Fizz"], [48, "Fizz"], [51, "Fizz"], [54, "Fizz"], [57, "Fizz"], [63, "Fizz"], [66, "Fizz"], [69, "Fizz"], [72, "Fizz"], [78, "Fizz"], [81, "Fizz"], [84, "Fizz"], [87, "Fizz"], [93, "Fizz"], [96, "Fizz"], [99, "Fizz"]])("when given %s it returns '%s'", (input, expected) => {
+            expect(fizzbuzz(input)).toBe(expected)
         })
     })
     describe('returns "Buzz" when given a multiple of 5', () => {
-        it("returns 'Buzz' when given 5", () => {
-            expect(fizzbuzz(5)).toBe("Buzz")
-        })
-        it("returns 'Buzz' when given 10", () => {
-            expect(fizzbuzz(10)).toBe("Buzz")
-        })
-        it("returns 'Buzz' when given 100", () => {
-            expect(fizzbuzz(100)).toBe("Buzz")
+        it.each([[5, "Buzz"], [10, "Buzz"], [20, "Buzz"], [25, "Buzz"], [35, "Buzz"], [40, "Buzz"], [50, "Buzz"], [55, "Buzz"], [65, "Buzz"], [70, "Buzz"], [80, "Buzz"], [85, "Buzz"], [95, "Buzz"], [100, "Buzz"]])("when given %s it returns '%s'", (input, expected) => {
+            expect(fizzbuzz(input)).toBe(expected)
         })
     })
     describe('returns "FizzBuzz" when given a multiple of 3 and 5', () => {
-        it("returns 'FizzBuzz' when given 15", () => {
-            expect(fizzbuzz(15)).toBe("FizzBuzz")
+        it.each([[15, "FizzBuzz"], [30, "FizzBuzz"], [45, "FizzBuzz"], [60, "FizzBuzz"], [75, "FizzBuzz"], [90, "FizzBuzz"], [90, "FizzBuzz"]])("when given %s it returns '%s'", (input, expected) => {
+            expect(fizzbuzz(input)).toBe(expected)
         })
-        it('returns "FizzBuzz" when given 30', () => {
-        expect(fizzbuzz(30)).toBe("FizzBuzz")
     })
-})
 })
