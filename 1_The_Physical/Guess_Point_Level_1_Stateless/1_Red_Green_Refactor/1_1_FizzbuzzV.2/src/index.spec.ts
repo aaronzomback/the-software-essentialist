@@ -24,4 +24,7 @@ describe('fizzbuzz', () => {
           );
         });
     })
+    describe('returns "Fizz" when given a multiple of 3', () => {
+        expect(fizzbuzz(3)).toBe("Fizz")
+    })
 })
