@@ -8,8 +8,8 @@ describe('fizzbuzz', () => {
         it("returns '2' when given 2", () => {
         expect(fizzbuzz(2)).toBe("2")
         })
-        it("returns '100' when given 100", () => {
-            expect(fizzbuzz(100)).toBe("100")
+        it("returns '98' when given 98", () => {
+            expect(fizzbuzz(98)).toBe("98")
         })
     });
     describe('gracefully handles out-of-bound numbers below 1 and above 100', () => {
