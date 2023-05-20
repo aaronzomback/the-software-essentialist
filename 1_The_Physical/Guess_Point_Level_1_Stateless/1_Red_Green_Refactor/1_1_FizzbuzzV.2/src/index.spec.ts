@@ -10,6 +10,9 @@ describe('fizzbuzz', () => {
         it.each([0, 101, -12, 102, -34, -5, -3, -9, 115, 112])("when given %s it throws an error", (input) => {
             expect(() => fizzbuzz(input)).toThrowError(NumberOutOfBoundsError.message)
         })
+        it('does not throw an error when given a valid input', () => {
+            expect(() => fizzbuzz(1)).not.toThrowError(NumberOutOfBoundsError.message)
+        })
     })
     describe('returns "Fizz" when given a multiple of 3', () => {
         it.each([[3, "Fizz"], [6, "Fizz"], [9, "Fizz"], [12, "Fizz"], [18, "Fizz"], [21, "Fizz"], [24, "Fizz"], [27, "Fizz"], [33, "Fizz"], [36, "Fizz"], [39, "Fizz"], [42, "Fizz"], [48, "Fizz"], [51, "Fizz"], [54, "Fizz"], [57, "Fizz"], [63, "Fizz"], [66, "Fizz"], [69, "Fizz"], [72, "Fizz"], [78, "Fizz"], [81, "Fizz"], [84, "Fizz"], [87, "Fizz"], [93, "Fizz"], [96, "Fizz"], [99, "Fizz"]])("when given %s it returns '%s'", (input, expected) => {
@@ -29,6 +32,9 @@ describe('fizzbuzz', () => {
     describe('gracefully handles non-numbers', () => {
         it.each(["string", undefined, null, true, false, [], {}, () => {}])("when given %s it throws an error", (input) => {
             expect(() => fizzbuzz(input as any)).toThrowError(NonNumberTypeError.message)
+        })
+        it('does not throw an error when given a valid input', () => {
+            expect(() => fizzbuzz(1)).not.toThrowError(NonNumberTypeError.message)
         })                   
     })
 })
