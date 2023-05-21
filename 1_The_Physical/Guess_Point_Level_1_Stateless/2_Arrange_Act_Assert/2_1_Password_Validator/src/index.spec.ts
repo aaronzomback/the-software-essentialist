@@ -9,7 +9,7 @@ import {
 describe("password validator", () => {
   let responseObj: ResponseObject;
   describe("when the password is not valid", () => {
-    it.each(["Ho2", "Mo1", "Mo1".repeat(6)])(
+    it.each(["thePhysical1234567", "Ho2", "Mo1", "Mo1".repeat(6)])(
       "should should return an error if the password length is not between 5 or 15 characters, i.e. %s",
       (input) => {
         responseObj = {
@@ -19,7 +19,7 @@ describe("password validator", () => {
         expect(PasswordValidator.validate(input)).toEqual(responseObj);
       }
     );
-    it.each(["password1", "yoyo1", "supersecret2"])(
+    it.each(["maxwell1_c", "password1", "yoyo1", "supersecret2"])(
       "should return an error if the password does not contain an uppercase letter, i.e. %s",
       (input) => {
         responseObj = {
@@ -29,7 +29,7 @@ describe("password validator", () => {
         expect(PasswordValidator.validate(input)).toEqual(responseObj);
       }
     );
-    it.each(["Mo".repeat(6), "Password", "SuperSecret"])(
+    it.each(["maxwellTheBe", "Mo".repeat(6), "Password", "SuperSecret"])(
       "should return an error if the password does not contain a digit, i.e. %s",
       (input) => {
         responseObj = {
@@ -53,5 +53,12 @@ describe("password validator", () => {
         expect(PasswordValidator.validate(input)).toEqual(responseObj);
       }
     );
+  });
+  describe("when the password is valid", () => {
+    it("should return a valid response object", () => {
+      responseObj = PasswordValidator.validate("Maxwell1");
+      expect(responseObj.valid).toBe(true);
+      expect(responseObj.errors.length).toBe(0);
+    });
   });
 });
