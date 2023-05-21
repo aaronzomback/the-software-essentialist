@@ -17,6 +17,14 @@ describe('password validator', () => {
             }
             expect(PasswordValidator.validate('Mo1')).toEqual(responseObj)
         })
+        it('should return an error if the password is too long', (
+        ) => {
+            responseObj = {
+                valid: false,
+                errors: [InvalidLengthError]
+            }
+            expect(PasswordValidator.validate('Mo1'.repeat(6))).toEqual(responseObj)
+        })
     })
 })
 
