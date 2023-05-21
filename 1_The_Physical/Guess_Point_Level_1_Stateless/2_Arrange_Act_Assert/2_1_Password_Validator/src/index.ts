@@ -13,9 +13,16 @@ type PasswordError = typeof InvalidLengthError | typeof InvalidUpperCaseError | 
 
 export class PasswordValidator {
     static validate(password: string): ResponseObject {
+        let errors: PasswordError[] = [];
+        if (password.length < 5 || password.length > 15) {
+            errors.push(InvalidLengthError);
+        }
+        if (!/[A-Z]/.test(password)) {
+            errors.push(InvalidUpperCaseError);
+        }
         return {
-            valid: false,
-            errors: [InvalidLengthError, InvalidUpperCaseError]
+            valid: errors.length === 0,
+            errors: errors
         }
     }
 }
