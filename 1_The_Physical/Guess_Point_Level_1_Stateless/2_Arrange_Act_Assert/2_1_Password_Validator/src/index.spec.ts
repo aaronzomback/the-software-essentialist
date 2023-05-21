@@ -39,5 +39,12 @@ describe("password validator", () => {
         expect(PasswordValidator.validate(input)).toEqual(responseObj);
       }
     );
+    it("should return multiple errors if the password is not valid", () => {
+      responseObj = {
+        valid: false,
+        errors: [InvalidLengthError, InvalidUpperCaseError, InvalidDigitError],
+      };
+      expect(PasswordValidator.validate("mo")).toEqual(responseObj);
+    });
   });
 });
