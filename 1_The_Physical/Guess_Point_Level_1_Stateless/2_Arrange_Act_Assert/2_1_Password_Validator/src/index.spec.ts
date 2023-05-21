@@ -55,10 +55,13 @@ describe("password validator", () => {
     );
   });
   describe("when the password is valid", () => {
-    it("should return a valid response object", () => {
-      responseObj = PasswordValidator.validate("Maxwell1");
-      expect(responseObj.valid).toBe(true);
-      expect(responseObj.errors.length).toBe(0);
-    });
+    it.each(["Maxwell1", "Password1", "SuperSecret2"])(
+      "should return a valid response object for %s",
+      (input) => {
+        responseObj = PasswordValidator.validate(input);
+        expect(responseObj.valid).toBe(true);
+        expect(responseObj.errors.length).toBe(0);
+      }
+    );
   });
 });
