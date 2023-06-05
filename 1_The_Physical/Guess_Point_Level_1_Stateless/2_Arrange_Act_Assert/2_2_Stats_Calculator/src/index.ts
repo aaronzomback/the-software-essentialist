@@ -10,6 +10,11 @@ export class JukeboxMath {
     if (numbers.length === 0) {
       throw new Error("Empty array");
     }
-    return { min: -2 } as JukeboxResponse;
+    const min = this.getMin(numbers);
+    return { min } as JukeboxResponse;
+  }
+
+  private static getMin(numbers: number[]): number {
+    return numbers.reduce((acc, curr) => (acc < curr ? acc : curr), numbers[0]);
   }
 }

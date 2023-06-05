@@ -1,7 +1,7 @@
 import { JukeboxMath, JukeboxResponse } from "./index";
 
 describe("stats calculator", () => {
-  describe("should validate an array of integer numbers", () => {
+  describe("knows to validate an array of integer numbers", () => {
     it("should not throw an error if the array contains numbers", () => {
       expect(() => JukeboxMath.compute([1, 2, 3, 4, 5])).not.toThrow();
     });
@@ -9,7 +9,7 @@ describe("stats calculator", () => {
       expect(() => JukeboxMath.compute([])).toThrow();
     });
   });
-  describe("should calculate the minimum value", () => {
+  describe("it can calculate the minimum value", () => {
     it("should return 1 if the array contains [-2, -1, 0, 1, 2]", () => {
       // arrange
       let response: JukeboxResponse;
