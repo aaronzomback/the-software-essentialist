@@ -5,5 +5,8 @@ describe("stats calculator", () => {
     it("should not throw an error if the array contains numbers", () => {
       expect(() => JukeboxMath.compute([1, 2, 3, 4, 5])).not.toThrow();
     });
+    it("should throw an error if the array is empty", () => {
+      expect(() => JukeboxMath.compute([])).toThrow();
+    });
   });
 });
