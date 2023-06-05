@@ -21,4 +21,16 @@ describe("stats calculator", () => {
       expect(response.min).toBe(-2);
     });
   });
+  describe("it can calculate the maximum value", () => {
+    it("should return 2 if the array contains [-2, -1, 0, 1, 2]", () => {
+      // arrange
+      let response: JukeboxResponse;
+
+      // act
+      response = JukeboxMath.compute([-2, -1, 0, 1, 2]);
+
+      // assert
+      expect(response.max).toBe(2);
+    });
+  });
 });

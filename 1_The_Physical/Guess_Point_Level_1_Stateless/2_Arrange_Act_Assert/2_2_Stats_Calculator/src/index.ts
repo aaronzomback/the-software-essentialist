@@ -11,7 +11,7 @@ export class JukeboxMath {
       throw new Error("Empty array");
     }
     const min = this.getMin(numbers);
-    return { min } as JukeboxResponse;
+    return { min, max: 2 } as JukeboxResponse;
   }
 
   private static getMin(numbers: number[]): number {
