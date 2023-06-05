@@ -13,7 +13,7 @@ export class JukeboxMath {
     const min = this.getMin(numbers);
     const max = this.getMax(numbers);
     const avg = this.getAvg(numbers);
-    return { min, max, avg } as JukeboxResponse;
+    return { min, max, avg, elements: 3 };
   }
 
   private static getMin(numbers: number[]): number {

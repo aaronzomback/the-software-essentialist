@@ -45,4 +45,16 @@ describe("stats calculator", () => {
       expect(response.avg).toBe(2);
     });
   });
+  describe("it can calculate the number of elements", () => {
+    it("should return 3 if the array contains [1, 2, 3]", () => {
+      // arrange
+      let response: JukeboxResponse;
+
+      // act
+      response = JukeboxMath.compute([1, 2, 3]);
+
+      // assert
+      expect(response.elements).toBe(3);
+    });
+  });
 });
