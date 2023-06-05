@@ -33,4 +33,16 @@ describe("stats calculator", () => {
       expect(response.max).toBe(2);
     });
   });
+  describe("it can calculate the average value", () => {
+    it("should return 2 if the array contains [1, 2, 3]", () => {
+      // arrange
+      let response: JukeboxResponse;
+
+      // act
+      response = JukeboxMath.compute([1, 2, 3]);
+
+      // assert
+      expect(response.avg).toBe(2);
+    });
+  });
 });
