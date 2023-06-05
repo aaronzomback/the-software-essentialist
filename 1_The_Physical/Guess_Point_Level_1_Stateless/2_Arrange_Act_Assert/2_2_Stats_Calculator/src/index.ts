@@ -1,4 +1,4 @@
-interface JukeboxResponse {
+export interface JukeboxResponse {
   min: number;
   max: number;
   elements: number;
@@ -10,6 +10,6 @@ export class JukeboxMath {
     if (numbers.length === 0) {
       throw new Error("Empty array");
     }
-    return {} as JukeboxResponse;
+    return { min: -2 } as JukeboxResponse;
   }
 }

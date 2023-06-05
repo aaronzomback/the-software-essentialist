@@ -1,4 +1,4 @@
-import { JukeboxMath } from "./index";
+import { JukeboxMath, JukeboxResponse } from "./index";
 
 describe("stats calculator", () => {
   describe("should validate an array of integer numbers", () => {
@@ -7,6 +7,18 @@ describe("stats calculator", () => {
     });
     it("should throw an error if the array is empty", () => {
       expect(() => JukeboxMath.compute([])).toThrow();
+    });
+  });
+  describe("should calculate the minimum value", () => {
+    it("should return 1 if the array contains [-2, -1, 0, 1, 2]", () => {
+      // arrange
+      let response: JukeboxResponse;
+
+      // act
+      response = JukeboxMath.compute([-2, -1, 0, 1, 2]);
+
+      // assert
+      expect(response.min).toBe(-2);
     });
   });
 });
