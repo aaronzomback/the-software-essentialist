@@ -10,51 +10,55 @@ describe("stats calculator", () => {
     });
   });
   describe("it can calculate the minimum value", () => {
-    it("should return 1 if the array contains [-2, -1, 0, 1, 2]", () => {
-      // arrange
-      let response: JukeboxResponse;
-
-      // act
-      response = JukeboxMath.compute([-2, -1, 0, 1, 2]);
-
-      // assert
-      expect(response.min).toBe(-2);
-    });
+    it.each([
+      [[-2, -1, 0, 1, 2], -2],
+      [[3, 7, 2], 2],
+      [[42, -212, 0, -1], -212],
+    ])(
+      "computes the min value of %p expecting %p",
+      (numbers: number[], expectedMin: number) => {
+        const { min } = JukeboxMath.compute(numbers);
+        expect(min).toEqual(expectedMin);
+      }
+    );
   });
   describe("it can calculate the maximum value", () => {
-    it("should return 2 if the array contains [-2, -1, 0, 1, 2]", () => {
-      // arrange
-      let response: JukeboxResponse;
-
-      // act
-      response = JukeboxMath.compute([-2, -1, 0, 1, 2]);
-
-      // assert
-      expect(response.max).toBe(2);
-    });
+    it.each([
+      [[-2, -1, 0, 1, 2], 2],
+      [[3, 7, 2], 7],
+      [[42, -212, 0, 42, -42], 42],
+    ])(
+      "computes the max value of %p expecting %p",
+      (numbers: number[], expectedMax: number) => {
+        const { max } = JukeboxMath.compute(numbers);
+        expect(max).toEqual(expectedMax);
+      }
+    );
   });
   describe("it can calculate the average value", () => {
-    it("should return 2 if the array contains [1, 2, 3]", () => {
-      // arrange
-      let response: JukeboxResponse;
-
-      // act
-      response = JukeboxMath.compute([1, 2, 3]);
-
-      // assert
-      expect(response.avg).toBe(2);
-    });
+    it.each([
+      [[-2, -1, 0, 1, 2], 0],
+      [[3, 7, 2], 4],
+      [[42, -212, 0, -1], -42.75],
+    ])(
+      "computes the average value of %p expecting %p",
+      (numbers: number[], expectedAvg: number) => {
+        const { avg } = JukeboxMath.compute(numbers);
+        expect(avg).toEqual(expectedAvg);
+      }
+    );
   });
   describe("it can calculate the number of elements", () => {
-    it("should return 3 if the array contains [1, 2, 3]", () => {
-      // arrange
-      let response: JukeboxResponse;
-
-      // act
-      response = JukeboxMath.compute([1, 2, 3]);
-
-      // assert
-      expect(response.elements).toBe(3);
-    });
+    it.each([
+      [[-2, -1, 0, 1, 2], 5],
+      [[3, 7, 2], 3],
+      [[42, -212, 0, -1], 4],
+    ])(
+      "computes the average value of %p expecting %p",
+      (numbers: number[], expectedElements: number) => {
+        const { elements } = JukeboxMath.compute(numbers);
+        expect(elements).toEqual(expectedElements);
+      }
+    );
   });
 });
