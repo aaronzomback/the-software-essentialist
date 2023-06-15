@@ -10,6 +10,10 @@ export class JukeboxMath {
     if (numbers.length === 0) {
       throw new Error("Empty array");
     }
+    if (numbers.includes(Infinity)) {
+      throw new Error("Integer numbers only");
+    }
+
     const min = this.getMin(numbers);
     const max = this.getMax(numbers);
     const avg = this.getAvg(numbers);

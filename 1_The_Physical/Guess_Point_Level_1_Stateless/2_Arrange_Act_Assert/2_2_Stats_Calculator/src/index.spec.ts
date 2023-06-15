@@ -5,8 +5,12 @@ describe("stats calculator", () => {
     it("should not throw an error if the array contains numbers", () => {
       expect(() => JukeboxMath.compute([1, 2, 3, 4, 5])).not.toThrow();
     });
+
     it("should throw an error if the array is empty", () => {
       expect(() => JukeboxMath.compute([])).toThrow();
+    });
+    it("should throw an error if the array is contains a non-integer number", () => {
+      expect(() => JukeboxMath.compute([Infinity, 1, 2])).toThrow();
     });
   });
   describe("it can calculate the minimum value", () => {
@@ -54,7 +58,7 @@ describe("stats calculator", () => {
       [[3, 7, 2], 3],
       [[42, -212, 0, -1], 4],
     ])(
-      "computes the average value of %p expecting %p",
+      "computes the total number of elements in %p expecting %p",
       (numbers: number[], expectedElements: number) => {
         const { elements } = JukeboxMath.compute(numbers);
         expect(elements).toEqual(expectedElements);
