@@ -9,8 +9,11 @@ describe("stats calculator", () => {
     it("should throw an error if the array is empty", () => {
       expect(() => JukeboxMath.compute([])).toThrow();
     });
-    it("should throw an error if the array is contains a non-integer number", () => {
+    it("should throw an error if the array contains a non-integer number", () => {
       expect(() => JukeboxMath.compute([Infinity, 1, 2])).toThrow();
+    });
+    it("should throw an error if the array contains a non-integer number", () => {
+      expect(() => JukeboxMath.compute([NaN, 1, 2])).toThrow();
     });
   });
   describe("it can calculate the minimum value", () => {

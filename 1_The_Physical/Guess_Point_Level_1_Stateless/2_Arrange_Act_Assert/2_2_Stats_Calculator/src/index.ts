@@ -10,7 +10,8 @@ export class JukeboxMath {
     if (numbers.length === 0) {
       throw new Error("Empty array");
     }
-    if (numbers.includes(Infinity)) {
+
+    if (numbers.some((n) => !Number.isInteger(n))) {
       throw new Error("Integer numbers only");
     }
 
